@@ -2339,7 +2339,7 @@ reearth.on("message", (msg) => {
 
 // tileset
 const tileset = reearth.layers.find(
-    (layer) => layer.type === "tileset" && layer.title === "3D Tiles"
+    (layer) => layer.type === "tileset"
 );
 let isOSM;
 

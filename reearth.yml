@@ -1,0 +1,12 @@
+name: 3D Tiles Styles
+version: 0.1.4
+id: reearth-plugin-tiles-styles
+extensions:
+  - id: 3d-tiles-styles
+    type: widget
+    name: 3D Tiles Styles
+    schema:
+      groups:
+        - id: default
+          title: default
+          fields:

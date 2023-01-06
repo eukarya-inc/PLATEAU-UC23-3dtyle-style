@@ -10,3 +10,7 @@ extensions:
         - id: default
           title: default
           fields:
+            # - id: tag3d
+            #   title: Set 3Dtiles Tag
+            #   type: url
+            #   ui: file

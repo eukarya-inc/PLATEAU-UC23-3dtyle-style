@@ -38,13 +38,14 @@ Re:Earthで読み込んだ3D都市モデル（PLATEAU）の表示・非表示や
 ### スタイルjsonファイルのサンプル
 エクスポートされるスタイルファイルは以下のような内容になります。
 
-> {"show":"(Number(${feature['_height']})>10)&&(Number(${feature['_height']})>0)",
->     "color":{"conditions":[
->         ["Number(${feature['_height']})<=30","color('#f26969')"],
->         ["Number(${feature['_height']})>60","color('#FFFFFF')"]
->         ]}
->}
-
+```
+{"show":"(Number(${feature['_height']})>10)&&(Number(${feature['_height']})>0)",
+    "color":{"conditions":[
+        ["Number(${feature['_height']})<=30","color('#f26969')"],
+        ["Number(${feature['_height']})>60","color('#FFFFFF')"]
+        ]}
+}
+```
 
 
 ## 備考

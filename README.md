@@ -12,7 +12,7 @@ Re:Earthで読み込んだ3D都市モデル（PLATEAU）の表示・非表示や
 - 3Dタイルを読み込んだあと、左パネルのレイヤーで「3Dタイル」を選択した状態で、右パネル上部の「インフォボックス」をクリックし「新規インフォボックス」をクリックすると、3Dタイルのプロパティを閲覧することができるようになります。プロパティを確認したい建物をクリックすると、インフォボックスが表示されます。
   
 
-![image](https://github.com/eukarya-inc/reearth-plugin-3dtilestyles/blob/main/src/img1.png)
+![image](https://github.com/eukarya-inc/reearth-plugin-3dtilestyles/src/img1.png)
 
 画像（PLATEAU-3D Tilesの場合）：インフォボックスでのプロパティの確認方法
 
@@ -22,7 +22,9 @@ Re:Earthで読み込んだ3D都市モデル（PLATEAU）の表示・非表示や
 - プラグインのメニュー「Color Setting」は、3D都市モデルの色分けの条件設定が行えます。「Apply style file」をクリックすると条件に合致するモデルのみの色を変えます。また、プラグインのメニューで「＋Condition」をクリックすることで、条件を追加していくことができます。
 - 条件設定は、「プロパティ名」＋「演算条件」＋「プロパティの内容」から設定を行えます。「プロパティ」は建物のインフォボックスより確認し、コピー＆ペーストで入力ができます。
 例：「高さ10m以上の建物のみを表示させる」場合、以下のような設定を行います。
-  ![image](https://github.com/eukarya-inc/reearth-plugin-3dtilestyles/blob/main/src/img2.png)
+
+  
+  ![image](https://github.com/eukarya-inc/reearth-plugin-3dtilestyles/src/img2.png)
   - Show Settingで「_height」＋「以上」＋「10」
   - - 「Remove stile file」をクリックすると入力した条件を一括で削除できます。
 

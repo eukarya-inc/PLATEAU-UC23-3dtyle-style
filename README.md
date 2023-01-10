@@ -1,46 +1,5 @@
-#  Plugin
-3D tiles style generator 
+#  3D tiles style plugin
 
-## What is this?
-This is a plugin that enable you to create 3D tiles style json file and apply it to 3D models.
-You can create style file including multiple condisions and colorize the 3D model differnt colors for each condistion.
-
-## How to use it?
-
-### Preperation
-  Drug and Drop the 3Dtles icon to the map then 3DTile layer is added to left side menu.
-  Click the "Tileset URL" on right panel menu.
-  Click the URL tab and then input 3D city model that you want to display.
-
-### Create Style
-  You can create feature's property filter on "Show Setting" menu.Available property name is found on 3D Tiles' Infobox. Infobox is created by clicking Infobox Icon on right side menu of 3DTiles layer. If you click the feature sucha as building, the features' property is displayed in Infobox.  ß
-  You can add filter by clicking "+" button. Then create cloring rule on "Color Setting" menu. Press the "Apply style file" button to apply the setting to the 3D tiles.
-
-### Export Style file
-  When you satsify the result, press the "Export style file" button to create json file.
-  
-  ### sample json file
-
-  ```
- {"show":"(Number(${feature['_height']})>10)&&(Number(${feature['_height']})>0)",
-      "color":{"conditions":[
-          ["Number(${feature['_height']})<=30","color('#f26969')"],
-          ["Number(${feature['_height']})>60","color('#FFFFFF')"]
-          ]}
- }
-  ```
-
-### Import Style file
-  You can import 3D tile style json file through Styling URL input on the rithe side menu of 3Dtiles Layer.
-  Click the Styleing URL input then upload and select the json file.
-  If the style is not applied, try reload the brwoser.
-
-## Note
-This plugin is tested on following browsers.
-- Chrome:  108.0.5359.94
-- Safari:  16.0 (17614.1.25.9.10, 17614)
-- FireFox: 107.0.1
-- Edge:    107.0.1418.56
 
 ## このプラグインについて
 Re:Earthで読み込んだ3D都市モデル（PLATEAU）の表示・非表示や色の変更をノンコードで行うことができるプラグインです。複数の条件の設定で3D都市モデル（PLATEAU）の色分けや表示・非表示の設定を行い、jsonファイルでのエクスポートも可能です。
@@ -94,3 +53,47 @@ Re:Earthで読み込んだ3D都市モデル（PLATEAU）の表示・非表示や
 - Safari: 16.0 (17614.1.25.9.10, 17614)
 - FireFox: 107.0
 - Edge: 107.0.1418.56
+
+
+
+
+## What is this?
+This is a plugin that enable you to create 3D tiles style json file and apply it to 3D models.
+You can create style file including multiple condisions and colorize the 3D model differnt colors for each condistion.
+
+## How to use it?
+
+### Preperation
+  Drug and Drop the 3Dtles icon to the map then 3DTile layer is added to left side menu.
+  Click the "Tileset URL" on right panel menu.
+  Click the URL tab and then input 3D city model that you want to display.
+
+### Create Style
+  You can create feature's property filter on "Show Setting" menu.Available property name is found on 3D Tiles' Infobox. Infobox is created by clicking Infobox Icon on right side menu of 3DTiles layer. If you click the feature sucha as building, the features' property is displayed in Infobox.  ß
+  You can add filter by clicking "+" button. Then create cloring rule on "Color Setting" menu. Press the "Apply style file" button to apply the setting to the 3D tiles.
+
+### Export Style file
+  When you satsify the result, press the "Export style file" button to create json file.
+  
+  ### sample json file
+
+  ```
+ {"show":"(Number(${feature['_height']})>10)&&(Number(${feature['_height']})>0)",
+      "color":{"conditions":[
+          ["Number(${feature['_height']})<=30","color('#f26969')"],
+          ["Number(${feature['_height']})>60","color('#FFFFFF')"]
+          ]}
+ }
+  ```
+
+### Import Style file
+  You can import 3D tile style json file through Styling URL input on the rithe side menu of 3Dtiles Layer.
+  Click the Styleing URL input then upload and select the json file.
+  If the style is not applied, try reload the brwoser.
+
+## Note
+This plugin is tested on following browsers.
+- Chrome:  108.0.5359.94
+- Safari:  16.0 (17614.1.25.9.10, 17614)
+- FireFox: 107.0.1
+- Edge:    107.0.1418.56

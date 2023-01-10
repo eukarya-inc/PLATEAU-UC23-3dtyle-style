@@ -5,7 +5,7 @@
 Re:Earthで読み込んだ3D都市モデル（PLATEAU）の表示・非表示や色の変更をノンコードで行うことができるプラグインです。複数の条件の設定で3D都市モデル（PLATEAU）の色分けや表示・非表示の設定を行い、jsonファイルでのエクスポートも可能です。
 
 
-## （準備）3タイルの読み込み・プロパティの確認方法
+## （準備）3Dタイルの読み込み・プロパティの確認方法
 - 中央上部パネルから3Dタイルアイコンを地図上にドラッグアンドドロップし、使用したい3DタイルのURLやファイルをRe:Earthに読み込みます。
   ※3D都市モデル（PLATEAU）のURLは[こちら](https://github.com/Project-PLATEAU/plateau-streaming-tutorial/blob/main/3d-tiles/plateau-3dtiles-streaming.md)から参照できます。
 
@@ -35,7 +35,8 @@ Re:Earthで読み込んだ3D都市モデル（PLATEAU）の表示・非表示や
 - 条件を保存したい場合は、「Export style file 」ボタンを押してjsonファイルを作成します。作成したjsonファイルはRe:Earthのファイルインポート機能でインポートすることができます。
 ※ブラウザの更新などをするとエクスポートしていない条件は消えてしまうので注意してください。
 
-  ### スタイルjsonファイルのサンプル
+### スタイルjsonファイルのサンプル
+エクスポートされるスタイルファイルは以下のような内容になります。
 
 > {"show":"(Number(${feature['_height']})>10)&&(Number(${feature['_height']})>0)",
 >     "color":{"conditions":[
@@ -73,8 +74,11 @@ You can create style file including multiple condisions and colorize the 3D mode
 
 ### Export Style file
   When you satsify the result, press the "Export style file" button to create json file.
-  
-  ### sample json file
+
+
+
+### sample json file
+
 
 
 > {"show":"(Number(${feature['_height']})>10)&&(Number(${feature['_height']})>0)",

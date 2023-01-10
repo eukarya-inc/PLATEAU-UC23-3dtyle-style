@@ -81,14 +81,14 @@ You can create style file including multiple condisions and colorize the 3D mode
 ### sample json file
 
 
-
-> {"show":"(Number(${feature['_height']})>10)&&(Number(${feature['_height']})>0)",
->     "color":{"conditions":[
->         ["Number(${feature['_height']})<=30","color('#f26969')"],
->         ["Number(${feature['_height']})>60","color('#FFFFFF')"]
->         ]}
->}
-
+```
+{"show":"(Number(${feature['_height']})>10)&&(Number(${feature['_height']})>0)",
+    "color":{"conditions":[
+        ["Number(${feature['_height']})<=30","color('#f26969')"],
+        ["Number(${feature['_height']})>60","color('#FFFFFF')"]
+        ]}
+}
+```
 
 
 ## Note

@@ -89,10 +89,6 @@ You can create style file including multiple condisions and colorize the 3D mode
 >}
 
 
-### Import Style file
-  You can import 3D tile style json file through Styling URL input on the rithe side menu of 3Dtiles Layer.
-  Click the Styleing URL input then upload and select the json file.
-  If the style is not applied, try reload the brwoser.
 
 ## Note
 This plugin is tested on following browsers.

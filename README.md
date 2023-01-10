@@ -25,6 +25,8 @@ Re:Earthで読み込んだ3D都市モデル（PLATEAU）の表示・非表示や
 例：「高さ10m以上の建物のみを表示させる」場合、以下のような設定を行います。
 
 <img src="src/img2.png">
+
+
   - Show Settingで「_height」＋「以上」＋「10」
 - 「Remove stile file」をクリックすると入力した条件を一括で削除できます。
 

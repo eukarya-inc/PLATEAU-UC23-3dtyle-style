@@ -25,6 +25,7 @@ Re:Earthで読み込んだ3D都市モデル（PLATEAU）の表示・非表示や
 
   
   ![image](https://eukarya-inc.github.io/reearth-plugin-3dtilestyles/src/img2.png)
+  
   - Show Settingで「_height」＋「以上」＋「10」
   - - 「Remove stile file」をクリックすると入力した条件を一括で削除できます。
 

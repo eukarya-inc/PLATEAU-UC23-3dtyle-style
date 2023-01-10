@@ -12,9 +12,9 @@ Re:Earthで読み込んだ3D都市モデル（PLATEAU）の表示・非表示や
 - 3Dタイルを読み込んだあと、左パネルのレイヤーで「3Dタイル」を選択した状態で、右パネル上部の「インフォボックス」をクリックし「新規インフォボックス」をクリックすると、3Dタイルのプロパティを閲覧することができるようになります。プロパティを確認したい建物をクリックすると、インフォボックスが表示されます。
   
 
-![image](https://eukarya-inc.github.io/reearth-plugin-3dtilestyles/src/img1.png)
+  ![image](https://eukarya-inc.github.io/reearth-plugin-3dtilestyles/src/img1.png)
 
-画像（PLATEAU-3D Tilesの場合）：インフォボックスでのプロパティの確認方法
+  - 画像：インフォボックスでのプロパティの確認方法（PLATEAU-3D Tilesの場合）
 
 
 ## 使用方法
@@ -27,7 +27,7 @@ Re:Earthで読み込んだ3D都市モデル（PLATEAU）の表示・非表示や
   ![image](https://eukarya-inc.github.io/reearth-plugin-3dtilestyles/src/img2.png)
   
   - Show Settingで「_height」＋「以上」＋「10」
-  - - 「Remove stile file」をクリックすると入力した条件を一括で削除できます。
+  - 「Remove stile file」をクリックすると入力した条件を一括で削除できます。
 
 
 

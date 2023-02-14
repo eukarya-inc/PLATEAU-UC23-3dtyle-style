@@ -1,5 +1,5 @@
 name: 3D Tiles Styles
-version: 0.1.5
+version: 0.1.6
 id: reearth-plugin-tiles-styles
 extensions:
   - id: 3d-tiles-styles
@@ -10,7 +10,19 @@ extensions:
         - id: default
           title: default
           fields:
-            # - id: tag3d
-            #   title: Set 3Dtiles Tag
-            #   type: url
-            #   ui: file
+            - id: enable_tag_filter
+              type: bool
+              title: Enable tag filter
+              defaultValue: false
+        - id: tiles_tag_filter
+          title: Tag filter
+          list: true
+          representativeField: tiles_tag_name
+          availableIf:
+            field: enable_tag_filter
+            type: bool
+            value: true
+          fields:
+            - id: tiles_tag_name
+              type: string
+              title: Tag Name

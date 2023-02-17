@@ -1,11 +1,23 @@
-#  3D tiles style plugin
+# 「プラグイン共有プラットフォーム開発によるユースケース開発の参入障壁低減化」について
+
+## ユースケースの概要
+3D都市モデルの意義や有用性は徐々に認知されており、多様なプレイヤー（行政、市民、企業等）が3D都市モデルを活用したユースケース開発に関心を示している。一方、地方自治体では、財政制約があるため、新たにユースケースのためのソフトウェア開発等を行うことは難しい。さらに、通常、自治体職員はノンエンジニアなので、自らユースケースを創出するためのシステム開発は難しい。
+
+本実証では、オープンソースのWebGISソフトウェアであるRe:Earth（https://reearth.io/ja/ ） のプラグイン（拡張機能）を、誰でも簡単に公開・利用できる「プラグイン共有プラットフォーム」を開発することで、3D都市モデルのユースケース開発に利用可能なプラグインが広く共有され、ノンエンジニアでも容易かつ低予算で、ユースケース開発できる仕組みを提供し、Re:Earthやプラグインを活用して自治体職員が3D都市モデルを活用した様々なユースケースを自ら開発した。
+
+## 開発システムの概要
+本プラグインは、ノンエンジニア属性の自治体職員がアイデアを出した3D都市モデルのユースケースを実現するために開発したRe:Earth用のプラグインであり、本実証で開発したシステム（プラグイン共有プラットフォーム）にて公開されたものである。
+※プラグイン共有プラットフォームのリポジトリへのリンク
+
+
 
 
 ## このプラグインについて
 Re:Earthで読み込んだ3D都市モデル（PLATEAU）の表示・非表示や色の変更をノンコードで行うことができるプラグインです。複数の条件の設定で3D都市モデル（PLATEAU）の色分けや表示・非表示の設定を行い、jsonファイルでのエクスポートも可能です。
 
+## 利用手順
 
-## （準備）3Dタイルの読み込み・プロパティの確認方法
+### （準備）3Dタイルの読み込み・プロパティの確認方法
 - 中央上部パネルから3Dタイルアイコンを地図上にドラッグアンドドロップし、使用したい3DタイルのURLやファイルをRe:Earthに読み込みます。
   ※3D都市モデル（PLATEAU）のURLは[こちら](https://github.com/Project-PLATEAU/plateau-streaming-tutorial/blob/main/3d-tiles/plateau-3dtiles-streaming.md)から参照できます。
 
@@ -17,7 +29,7 @@ Re:Earthで読み込んだ3D都市モデル（PLATEAU）の表示・非表示や
   - 画像：インフォボックスでのプロパティの確認方法（PLATEAU-3D Tilesの場合）
 
 
-## 使用方法
+### 使用方法
 - プラグインのメニュー「Show Setting」は、3D都市モデルの表示・非表示の条件設定が行えます。条件を入力し「Apply style file」をクリックすると条件に合致するモデルのみが表示されるようになります。また、プラグインのメニューで「＋」をクリックすることで、条件を追加していくことができます。
 - プラグインのメニュー「Color Setting」は、3D都市モデルの色分けの条件設定が行えます。「Apply style file」をクリックすると条件に合致するモデルのみの色を変えます。また、プラグインのメニューで「＋Condition」をクリックすることで、条件を追加していくことができます。
 - 条件設定は、「プロパティ名」＋「演算条件」＋「プロパティの内容」から設定を行えます。「プロパティ」は建物のインフォボックスより確認し、コピー＆ペーストで入力ができます。
@@ -31,11 +43,11 @@ Re:Earthで読み込んだ3D都市モデル（PLATEAU）の表示・非表示や
 
 
 
-### スタイルファイルのエキスポート
+#### スタイルファイルのエキスポート
 - 条件を保存したい場合は、「Export style file 」ボタンを押してjsonファイルを作成します。作成したjsonファイルはRe:Earthのファイルインポート機能でインポートすることができます。
 ※ブラウザの更新などをするとエクスポートしていない条件は消えてしまうので注意してください。
 
-### スタイルjsonファイルのサンプル
+#### スタイルjsonファイルのサンプル
 エクスポートされるスタイルファイルは以下のような内容になります。
 
 ```
@@ -48,7 +60,7 @@ Re:Earthで読み込んだ3D都市モデル（PLATEAU）の表示・非表示や
 ```
 
 
-## 備考
+### 備考
 このプラグインは以下のブラウザでテストしています。
 - Chrome: 107.0.5304.110
 - Safari: 16.0 (17614.1.25.9.10, 17614)
@@ -57,43 +69,11 @@ Re:Earthで読み込んだ3D都市モデル（PLATEAU）の表示・非表示や
 
 
 
+## ライセンス
+- ソースコードおよび関連ドキュメントの著作権は国土交通省に帰属します。
+- 本ドキュメントはProject PLATEAUのサイトポリシー（CCBY4.0および政府標準利用規約2.0）に従い提供されています。
 
-## What is this?
-This is a plugin that enable you to create 3D tiles style json file and apply it to 3D models.
-You can create style file including multiple condisions and colorize the 3D model differnt colors for each condistion.
-
-## How to use it?
-
-### Preperation
-  Drug and Drop the 3Dtles icon to the map then 3DTile layer is added to left side menu.
-  Click the "Tileset URL" on right panel menu.
-  Click the URL tab and then input 3D city model that you want to display.
-
-### Create Style
-  You can create feature's property filter on "Show Setting" menu.Available property name is found on 3D Tiles' Infobox. Infobox is created by clicking Infobox Icon on right side menu of 3DTiles layer. If you click the feature sucha as building, the features' property is displayed in Infobox.  ß
-  You can add filter by clicking "+" button. Then create cloring rule on "Color Setting" menu. Press the "Apply style file" button to apply the setting to the 3D tiles.
-
-### Export Style file
-  When you satsify the result, press the "Export style file" button to create json file.
-
-
-
-### sample json file
-
-
-```
-{"show":"(Number(${feature['_height']})>10)&&(Number(${feature['_height']})>0)",
-    "color":{"conditions":[
-        ["Number(${feature['_height']})<=30","color('#f26969')"],
-        ["Number(${feature['_height']})>60","color('#FFFFFF')"]
-        ]}
-}
-```
-
-
-## Note
-This plugin is tested on following browsers.
-- Chrome:  108.0.5359.94
-- Safari:  16.0 (17614.1.25.9.10, 17614)
-- FireFox: 107.0.1
-- Edge:    107.0.1418.56
+## 注意事項
+- 本リポジトリは参考資料として提供しているものです。動作保証は行っておりません。
+- 予告なく変更・削除する可能性があります。
+- 本リポジトリの利用により生じた損失及び損害等について、国土交通省はいかなる責任も負わないものとします。

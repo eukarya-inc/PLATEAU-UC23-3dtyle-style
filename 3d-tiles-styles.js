@@ -1,5 +1,5 @@
 reearth.ui.show(
-  `
+`
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto Sans">
 <style>
@@ -1457,7 +1457,7 @@ reearth.ui.show(
       if (!tileset || tileset.length === 0) {
         alert("3Dタイルが見つかりませんでした。3Dタイルを読み込んでください。")
         // return;
-      } 
+      }
       main()
 
       // get tag filter array
@@ -2141,11 +2141,11 @@ reearth.ui.show(
           if (tilesetOSM) {
             result[i][k]["attribute"] =
               document.getElementById("filter-item-attribute-" + i + "-" + k)
-                .value || "height";
+                .value || "";
           } else {
             result[i][k]["attribute"] =
               document.getElementById("filter-item-attribute-" + i + "-" + k)
-                .value || "_height";
+                .value || "";
           }
 
           result[i][k]["operator"] =
@@ -2189,12 +2189,11 @@ reearth.ui.show(
         result[i] = [];
         if (tilesetOSM) {
           result[i]["attribute"] =
-            document.getElementById("condition-item-attr-" + i).value ||
-            "height";
+            document.getElementById("condition-item-attr-" + i).value
+
         } else {
           result[i]["attribute"] =
-            document.getElementById("condition-item-attr-" + i).value ||
-            "_height";
+            document.getElementById("condition-item-attr-" + i).value
         }
 
         result[i]["operator"] =
@@ -2355,6 +2354,8 @@ reearth.ui.show(
       if (colorArr.length === 0) {
         colorConditions = [["true", "color('#FFFFFF')"]];
       }
+
+      // console.log("filterConditions: ", filterConditions)
 
       //passing array to json data
       if (removeStatus !== REMOVE_STYLE_PARAMS_NUM) {
@@ -2552,122 +2553,115 @@ reearth.ui.show(
 
 </html>
 `,
-  { width: 46, height: 46 }
+{ width: 46, height: 46 }
 );
 
 reearth.on("update", send);
 send();
 
 function send() {
-  reearth.ui.postMessage({
-    property: reearth.widget.property,
-  });
+reearth.ui.postMessage({
+property: reearth.widget.property,
+});
 }
 
 reearth.on("message", (msg) => {
-  if (msg.type === "resize") {
-    reearth.ui.resize?.(
-      msg.expanded ? 46 : 312,
-      msg.expanded ? 46 : msg.heightWp,
-      msg.expanded ? undefined : false
-    );
-  }
+if (msg.type === "resize") {
+reearth.ui.resize?.(
+msg.expanded ? 46 : 312,
+msg.expanded ? 46 : msg.heightWp,
+msg.expanded ? undefined : false
+);
+}
 });
 
 reearth.on("message", (msg) => {
-  // tileset
-  const tilesetAll = reearth.layers.findAll(
-    (layer) => layer.type === "tileset" && layer.property.default !== undefined
-  );
-  let type;
-  let tilesetSrcTypeArr = [];
-  for (let i = 0; i < tilesetAll.length; i++) {
-    tilesetSrcTypeArr.push(tilesetAll[i].property.default.sourceType);
-  }
-  const allEqual = (arr) => arr.every((v) => v === arr[0]);
+// tileset
+const tilesetAll = reearth.layers.findAll(
+(layer) => layer.type === "tileset" && layer.property.default !== undefined
+);
+let type;
+let tilesetSrcTypeArr = [];
+for (let i = 0; i < tilesetAll.length; i++) { tilesetSrcTypeArr.push(tilesetAll[i].property.default.sourceType); } const
+  allEqual=(arr)=> arr.every((v) => v === arr[0]);
   if (allEqual(tilesetSrcTypeArr)) {
-    if (tilesetSrcTypeArr[0] === "osm") {
-      type = "osm";
-    } else {
-      type = "url";
-    }
+  if (tilesetSrcTypeArr[0] === "osm") {
+  type = "osm";
   } else {
-    type = "both";
+  type = "url";
+  }
+  } else {
+  type = "both";
   }
 
   let urlTileset = [];
-  for (let i = 0; i < tilesetAll.length; i++) {
-    urlTileset.push({
-      id: tilesetAll[i].id,
-      value: tilesetAll[i].property.default.styleUrl,
-    });
-  }
-  function getUrlById(id) {
-    const result = urlTileset.filter((word) => word.id === id);
+  for (let i = 0; i < tilesetAll.length; i++) { urlTileset.push({ id: tilesetAll[i].id, value:
+    tilesetAll[i].property.default.styleUrl, }); } function getUrlById(id) { const result=urlTileset.filter((word)=>
+    word.id === id);
     if (result[0]) {
-      return result[0].value;
+    return result[0].value;
     }
-  }
+    }
 
-  let DEFAULT_URL;
-  if (type === "osm") {
+    let DEFAULT_URL;
+    if (type === "osm") {
     DEFAULT_URL =
-      "data:text/json;charset=utf8,%7B%22show%22%3A%22(%24%7Bheight%7D%3E0)%22%2C%22color%22%3A%7B%22conditions%22%3A%5B%5B%22%24%7Bheight%7D%3E0%22%2C%22color('%23FFFFFF')%22%5D%5D%7D%7D";
-  } else if (type === "url") {
+    "data:text/json;charset=utf8,%7B%22show%22%3A%22(%24%7Bheight%7D%3E0)%22%2C%22color%22%3A%7B%22conditions%22%3A%5B%5B%22%24%7Bheight%7D%3E0%22%2C%22color('%23FFFFFF')%22%5D%5D%7D%7D";
+    } else if (type === "url") {
     DEFAULT_URL =
-      "data:text/json;charset=utf8,%7B%22show%22%3A%22(%24%7B_height%7D%3E0)%22%2C%22color%22%3A%7B%22conditions%22%3A%5B%5B%22%24%7B_height%7D%3E0%22%2C%22color('%23FFFFFF')%22%5D%5D%7D%7D";
-  } else {
+    "data:text/json;charset=utf8,%7B%22show%22%3A%22(%24%7B_height%7D%3E0)%22%2C%22color%22%3A%7B%22conditions%22%3A%5B%5B%22%24%7B_height%7D%3E0%22%2C%22color('%23FFFFFF')%22%5D%5D%7D%7D";
+    } else {
     DEFAULT_URL =
-      "data:text/json;charset=utf8,%7B%22show%22%3A%22(Number(%24%7Bfeature%5B'_height'%5D%7D)%3E%3D0%7C%7CNumber(%24%7Bheight%7D)%3E%3D0)%22%2C%22color%22%3A%7B%22conditions%22%3A%5B%5B%22Number(%24%7Bfeature%5B'_height'%5D%7D)%3E%3D0%22%2C%22color('%23FFFFFF')%22%5D%5D%7D%7D";
-  }
+    "data:text/json;charset=utf8,%7B%22show%22%3A%22(Number(%24%7Bfeature%5B'_height'%5D%7D)%3E%3D0%7C%7CNumber(%24%7Bheight%7D)%3E%3D0)%22%2C%22color%22%3A%7B%22conditions%22%3A%5B%5B%22Number(%24%7Bfeature%5B'_height'%5D%7D)%3E%3D0%22%2C%22color('%23FFFFFF')%22%5D%5D%7D%7D";
+    }
 
-  if (msg.styleJsonData) {
+    if (msg.styleJsonData) {
     if (msg.selectedTile) {
-      if (msg.emptyData) {
-        msg.tilesetArr.forEach((c) => {
-          reearth.layers.overrideProperty(c.id, {
-            default: {
-              styleUrl: getUrlById(c.id),
-            },
-          });
-        });
-      }
-      if (msg.styleJsonData === DEFAULT_URL) {
-        msg.selectedTile.forEach((c) => {
-          reearth.layers.overrideProperty(c.id, {
-            default: {
-              styleUrl: getUrlById(c.id),
-            },
-          });
-        });
-      } else {
-        msg.selectedTile.forEach((c) => {
-          reearth.layers.overrideProperty(c.id, {
-            default: {
-              styleUrl: "",
-            },
-          });
-        });
+    if (msg.emptyData) {
+    msg.tilesetArr.forEach((c) => {
+    reearth.layers.overrideProperty(c.id, {
+    default: {
+    styleUrl: getUrlById(c.id),
+    },
+    });
+    });
+    }
+    if (msg.styleJsonData === DEFAULT_URL) {
+    msg.selectedTile.forEach((c) => {
+    reearth.layers.overrideProperty(c.id, {
+    default: {
+    styleUrl: getUrlById(c.id),
+    },
+    });
+    });
+    } else {
+    msg.selectedTile.forEach((c) => {
+    reearth.layers.overrideProperty(c.id, {
+    default: {
+    styleUrl: "",
+    },
+    });
+    });
 
-        msg.selectedTile.forEach((c) => {
-          reearth.layers.overrideProperty(c.id, {
-            default: {
-              styleUrl: msg.styleJsonData,
-            },
-          });
-        });
-      }
+    msg.selectedTile.forEach((c) => {
+    reearth.layers.overrideProperty(c.id, {
+    default: {
+    styleUrl: msg.styleJsonData,
+    },
+    });
+    });
     }
-  }
-  if (msg.removeData) {
+    }
+    }
+    if (msg.removeData) {
     if (msg.selectedTile) {
-      msg.selectedTile.forEach((c) => {
-        reearth.layers.overrideProperty(c.id, {
-          default: {
-            styleUrl: getUrlById(c.id),
-          },
-        });
-      });
+    msg.selectedTile.forEach((c) => {
+    reearth.layers.overrideProperty(c.id, {
+    default: {
+    styleUrl: getUrlById(c.id),
+    },
+    });
+    });
     }
-  }
-});
+    }
+    });
